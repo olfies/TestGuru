@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2023_05_17_200958) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
+  create_table "tests", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "level", default: 0, null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_tests_on_category_id"
+  end
+  
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
