@@ -14,8 +14,8 @@ class Test < ApplicationRecord
   scope :high_level, -> { where(level: 5..Float::INFINITY) }
   scope :by_category, -> (category) { joins(:category).where(categories: { title: category }) }
 
-  def self.get_titles(category_name)
-    Test.joins(' JOIN categories ON tests.category_id = categories.id').where('categories.title = ?', category_name)
-        .order(title: :desc).pluck(:title)
+  def self.tests_by_category(category)
+    by_category(category).pluck(:title).order(title: :DESC)
   end
+
 end
