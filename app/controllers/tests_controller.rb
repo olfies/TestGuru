@@ -34,4 +34,3 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 end
-
