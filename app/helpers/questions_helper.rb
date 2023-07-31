@@ -4,7 +4,7 @@ module QuestionsHelper
     if question
        "Create New #{@test.title} Question"
     else
-       "Edit #{@question.test.body} Question"
+       "Edit #{@question.test.title} Question"
     end
   end
 
