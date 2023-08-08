@@ -1,0 +1,18 @@
+<h2>Test: <%= @test.title %></h2>
+
+<p>
+<%= link_to 'New question', new_test_question_path %>
+</p>
+
+<p>
+  Questions:
+</p>
+
+<table>
+  <tr>
+    <th align="left">Body</th>
+  </tr>
+
+  <%= render test.questions %>
+
+</table>
