@@ -14,12 +14,11 @@ user1 = User.create(name: 'Gleb')
 user2 = User.create(name: 'Andrey')
 user3 = User.create(name: 'Masha')
 
-test1 = Test.create!(title: 'Rock', level: 1, author_id: user1.id, category_id: cat1.id )
+test1 = Test.create(title: 'Rock', level: 1, author_id: user1.id, category_id: cat1.id )
 test2 = Test.create(title: 'Old films', level: 2, author_id: user2.id, category_id: cat2.id )
 test3 = Test.create(title: 'Long series', level: 3, author_id: user3.id, category_id: cat3.id )
 
-
-quest1 = Question.create!( body: 'When did rock music appear in Russia?', test_id: test1.id )
+quest1 = Question.create( body: 'When did rock music appear in Russia?', test_id: test1.id )
 quest2 = Question.create( body: 'When was the first movie made?', test_id: test2.id )
 quest3 = Question.create( body: 'How many episodes are there in the longest TV series in the world?', test_id: test3.id )
 
@@ -29,3 +28,7 @@ answer2 = Answer.create( body: '1895', question_id: quest2.id, correct: true ),
 answer2 = Answer.create( body: '1900', question_id: quest2.id, correct: false ),
 answer3 = Answer.create( body: '18262', question_id: quest3.id, correct: true ),
 answer3 = Answer.create( body: '18362', question_id: quest3.id, correct: false )
+
+test_passage1 = TestPassage.create(user_id: user1.id, test_id: test1.id, current_question_id: quest1.id)
+test_passage2 = TestPassage.create(user_id: user2.id, test_id: test2.id, current_question_id: quest2.id)
+test_passage3 = TestPassage.create(user_id: user3.id, test_id: test3.id, current_question_id: quest3.id)

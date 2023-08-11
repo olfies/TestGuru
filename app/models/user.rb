@@ -1,12 +1,13 @@
 class User < ApplicationRecord
-  has_many :user_tests
-  has_many :tests, through: :user_tests
-
+  has_many :test_passages
+  has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test', foreign_key: 'author_id'
 
-  def tests_by_level(level)
-    Test.joins('JOIN user_tests ON tests.id = user_tests.test_id')
-        .where("tests.level = ?",level).where("user_tests.user_id = ?", id)
+  def user_tests(test_level)
+    tests.where(level: test_level)
   end
 
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
 end

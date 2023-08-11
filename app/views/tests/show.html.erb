@@ -7,10 +7,10 @@
 <br>
   <strong>Category:</strong>
   <%= test_path(@test) %>
+<br>
 </p>
 
-<%= render 'questions/question', questions: @test.questions %>
-<br>
+<%= render @test.questions %>
 <%= link_to 'Back', tests_path %> |
 <%= link_to 'Edit test', edit_test_path %> |
 <%= link_to 'Add questions', new_test_question_path(@test)%>
