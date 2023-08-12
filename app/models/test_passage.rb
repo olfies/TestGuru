@@ -8,17 +8,16 @@ class TestPassage < ApplicationRecord
 
 
   before_validation :before_validation_set_first_question, on: :create
-  
+
 
   def completed?
     current_question.nil?
   end
 
   def accept!(answer_ids)
-    answer_ids ||= []
-    self.correct_questions += 1 if correct_answer?(answer_ids)
-    self.current_question_id += 1
-    save!
+    if correct_answer?(answer_ids)
+      self.correct_questions += 1
+    end
   end
 
   def result_rate
