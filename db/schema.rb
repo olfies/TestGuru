@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2023_08_10_191546) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-    add_foreign_key "questions", "tests"
+  add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "current_questions"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
