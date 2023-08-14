@@ -46,6 +46,6 @@ class TestPassage < ApplicationRecord
   end
 
   def set_next_question
-    self.current_question = next_question
+    self.current_question = completed? ? nil : next_question
   end
 end
