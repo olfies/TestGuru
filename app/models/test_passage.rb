@@ -6,7 +6,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_current_question, on: :create
+  before_validation :before_validation_set_current_question, on: %i[create update]
 
   def position_of_current_question
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
