@@ -34,8 +34,12 @@ class TestPassage < ApplicationRecord
 
   private
 
-  def before_validation_set_current_question
-    self.current_question = test.questions.first if test.present?
+   def before_validation_set_current_question
+    if test.present? && current_question.nil?
+      self.current_question = test.questions.first
+    elsif test.present?
+      self.current_question = next_question
+    end
   end
 
   def correct_answer?(answer_ids)
