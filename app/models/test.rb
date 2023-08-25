@@ -3,8 +3,8 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   has_many :questions
-  has_many :user_tests
-  has_many :users, through: :user_tests
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :level, numericality: { only_integer: true, greater_than: 0 }
   validates :title, presence: true, uniqueness: { scope: :level }
@@ -17,5 +17,4 @@ class Test < ApplicationRecord
   def self.tests_by_category(category)
     by_category(category).pluck(:title).order(title: :DESC)
   end
-
 end
