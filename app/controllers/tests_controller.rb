@@ -1,8 +1,8 @@
 class TestsController < ApplicationController
   before_action :set_test, only: %i[show edit update destroy start]
   before_action :set_user, only: :start
-  before_action :authenticate_user!
-  
+
+
   def show
   end
 
