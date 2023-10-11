@@ -73,5 +73,10 @@ ActiveRecord::Schema.define(version: 2023_10_10_211035) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "current_questions"
+  add_foreign_key "test_passages", "tests"
+  add_foreign_key "test_passages", "users"
+  add_foreign_key "tests", "categories"
+  add_foreign_key "user_tests", "tests"
+  add_foreign_key "user_tests", "users"
 end
