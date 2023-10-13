@@ -5,16 +5,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to cookies[:redirect_to] || tests_path
-    else
-      flash.now[:alert] = 'Verify your Email and Password'
-      render :new
+    if params[:session].present?
+      @user = User.find_by_email(params[:session][:email].downcase)
+    else @user && @user.authenticate(params[:session][:password])
+     @user # это метод, который вы должны определить в Helpers для входа пользователя
+    end
+    if  flash.now[:message] = 'Invalid email/password combination'
+      render 'new'
     end
   end
+
 
   def destroy
     session[:user_id] = nil
