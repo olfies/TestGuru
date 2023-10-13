@@ -7,14 +7,18 @@ class SessionsController < ApplicationController
   def create
     if params[:session].present?
       @user = User.find_by_email(params[:session][:email].downcase)
-    else @user && @user.authenticate(params[:session][:password])
-     @user # это метод, который вы должны определить в Helpers для входа пользователя
-    end
-    if  flash.now[:message] = 'Invalid email/password combination'
+      if @user && @user.authenticate(params[:session][:password])
+      else
+        flash.now[:message] = 'Invalid email/password combination'
+        render 'new'
+        return
+      end
+    else
+      flash.now[:message] = 'No session data provided'
       render 'new'
+      return
     end
   end
-
 
   def destroy
     session[:user_id] = nil
