@@ -4,4 +4,4 @@ module FlashHelper
       puts flash[:message] if flash.is_a?(Hash) && flash[:message]
     end
   end
-  end
+end

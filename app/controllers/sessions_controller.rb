@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
     if params[:session].present?
       @user = User.find_by_email(params[:session][:email].downcase)
       if @user && @user.authenticate(params[:session][:password])
+        log_in @user
+        redirect_to @user
       else
         flash.now[:message] = 'Invalid email/password combination'
         render 'new'
-        return
       end
     else
       flash.now[:message] = 'No session data provided'
       render 'new'
-      return
     end
   end
 
