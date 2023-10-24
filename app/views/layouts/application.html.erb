@@ -3,6 +3,7 @@
   <head>
     <title>TestGuru</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,10 +12,16 @@
   <body>
     <%= render 'layouts/nav' %>
 
-    <% flash.each do |message_type, message| %>
+    <% if user_signed_in? %>
+      <p class="nav user">
+        Welcome, <b><%= current_user.email %></b> Guru
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </p>
     <% end %>
-    <%= yield %>
 
+    <%= render 'shared/flash' %>
+
+    <%= yield %>
 
     <%= render 'shared/footer' %>
   </body>
