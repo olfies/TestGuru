@@ -1,16 +1,16 @@
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title') %></strong>
   <%= @test.title %>
 <br>
-  <strong>Level:</strong>
+  <strong><%= t('.level') %></strong>
   <%= @test.level %>
 <br>
-  <strong>Category:</strong>
+  <strong><%=t('.category_id')%></strong>
   <%= test_path(@test) %>
 <br>
 </p>
 
 <%= render @test.questions %>
-<%= link_to 'Back', tests_path %> |
-<%= link_to 'Edit test', edit_test_path %> |
-<%= link_to 'Add questions', new_test_question_path(@test)%>
+<%= link_to t('.back'), tests_path %> |
+<%= link_to t('edit'), edit_test_path %> |
+<%= link_to t('new_question'), new_test_question_path(@test)%>
