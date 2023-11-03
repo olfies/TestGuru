@@ -1,5 +1,5 @@
 en:
- helpers:
+  helpers:
     submit:
       test:
         create: "Create a test"

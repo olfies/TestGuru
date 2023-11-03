@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Admin Panel | TestGuru</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin TestGuru panel</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheer_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
+  
   <body>
     <%= render 'admin/nav' %>
-    <%= render 'shared/flash' %>
 
+    <div class="container">
+    <%= render 'shared/flash' %>
     <%= yield %>
-    </body>
+
+    </div>
+  </body>
+
 </html>
