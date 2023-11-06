@@ -10,6 +10,7 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def edit
+    
   end
 
   def create
