@@ -1,4 +1,3 @@
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -35,10 +34,9 @@ class User < ApplicationRecord
 
   def password=(password_string)
     if password_string.nil?
-      self.password_digest = nil
     elsif password_string.present?
       @password = password_string
-      self.password_digest = digest(password_string)
+      password_digest = password_digest(password_string)
     end
   end
 
