@@ -1,7 +1,15 @@
-class TestsMailerPreview < ActionMailer::Preview
-    def completed_test
-      test_passage = TestPassage.new(user: User.first, test: Test.first)
+class TestPassagesPreview < ActionMailer::Preview
+  def completed_test_preview
+    user = User.first
+    test = Test.first
 
-      TestsMailer.completed_test(test_passage)
+    if user.nil? || test.nil?
+      Rails.logger.error 'Unable to fetch the User or Test for the preview'
+      return
     end
+
+    test_passage = TestPassage.new(user: user, test: test)
+
+    TestPassagesMailer.completed_test(test_passage)
+  end
 end

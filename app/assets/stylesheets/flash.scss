@@ -8,3 +8,17 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+.flash.notice{
+  border-color: rgb(2, 129, 2);
+}
+
+.flash.alert{
+  border-color: crimson;
+  color: crimson;
+}
+
+.flash.success{
+  border-color: green;
+  color: green;
+}
