@@ -9,21 +9,21 @@ class Admin::AdminQuestionsController < Admin::BaseController
   end
 
   def new
-    @admin_question = @test.questions.new
+    @question = @test.questions.new
   end
 
   def create
-    @admin_question = @test.questions.new(admin_question_params)
-    if @admin_question.save
-      redirect_to test_admin_questions_path(@admin_question.test_id)
+    @question = @test.questions.new(admin_question_params)
+    if @question.save
+      redirect_to admin_questions_path(@question.test_id)
     else
       render :new
     end
   end
 
   def update
-    if @admin_question.update(admin_question_params)
-      redirect_to test_path(@admin_question.test)
+    if @question.update(admin_question_params)
+      redirect_to test_path(@question.test)
     else
       render :edit
     end
@@ -33,8 +33,8 @@ class Admin::AdminQuestionsController < Admin::BaseController
   end
 
   def destroy
-    @admin_question.destroy
-    redirect_to test_admin_questions_path(@admin_question.test_id)
+    @question.destroy
+    redirect_to admin_questions_path(@question.test_id)
   end
 
   private
@@ -44,11 +44,11 @@ class Admin::AdminQuestionsController < Admin::BaseController
   end
 
   def find_admin_question
-    @admin_question = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def admin_question_params
-    params.require(:admin_question).permit(:body)
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_admin_question_not_found
