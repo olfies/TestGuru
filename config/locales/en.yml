@@ -6,13 +6,11 @@ en:
         update: "Update a test"
     select:
       prompt: "Please select"
-
     label:
       test:
         title: "Title"
         level: "Level"
         category_id: "Category"
-
   tests:
     index:
       header: "Tricky questions"
@@ -23,7 +21,18 @@ en:
     test:
       start: "Start"
 
+  test_passages:
+    gist:
+      success: "Gist was successfully created! %{url}"
+      failure: "An error occurred while saving gist"
+
   admin:
+    gists:
+      index:
+        header: "Gists"
+        question: "Question"
+        link: "Link"
+        email: "E-mail"
     tests:
       index:
         header: "Tricky questions"

@@ -29,6 +29,12 @@ gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# GITHUB API
+gem "octokit", "~> 5.0"
+
+
+gem 'faraday', '~> 2.7', '>= 2.7.11'
+
 #UI
 gem 'jquery-rails'
 
@@ -40,6 +46,7 @@ group :development, :test do
   gem "rspec"
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'dotenv-rails'
 end
 
 group :development do

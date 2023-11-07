@@ -11,6 +11,7 @@ resources :tests, only: :index do
 end
 resources :test_passages, only: %i[show update] do
   member do
+    post :gist
     get :result
   end
 end
@@ -21,6 +22,7 @@ namespace :admin do
       resources :answers, shallow: true, except: :index
     end
   end
+  resources :gists, only: :index
 end
 
 end
