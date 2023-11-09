@@ -6,13 +6,11 @@ ru:
         update: "Обновить тест"
     select:
       prompt: "Выберите категорию"
-
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
-
   tests:
     index:
       header: "Доступные тесты"
@@ -23,7 +21,18 @@ ru:
     test:
       start: "Начать"
 
+  test_passages:
+    gist:
+      success: "Gist успешно сохранен! %{url}"
+      failure: "Во время сохранения gist произошла ошибка"
+
   admin:
+    gists:
+      index:
+        header: "Список гистов"
+        question: "Вопрос"
+        link: "Ссылка"
+        email: "E-mail пользователя"
     tests:
       index:
         header: "Доступные тесты"
