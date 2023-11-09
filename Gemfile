@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # GITHUB API
 gem "octokit", "~> 5.0"
 
+gem 'octicons_helper'
 
 gem 'faraday', '~> 2.7', '>= 2.7.11'
 
